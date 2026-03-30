@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aurora Pro Carbon — Padel Racket</title>
+    <meta
+      name="description"
+      content="Responsive product page demo: Aurora Pro Carbon padel racket with Flexbox and media queries."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container">
+        <nav class="topnav" aria-label="Primary">
+          <a class="logo" href="#" aria-label="Nordline — Home">
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span class="logo__name">Nordline</span>
+          </a>
+
+          <div class="topnav__links" aria-label="Menu">
+            <a class="topnav__link" href="#" aria-current="page">New</a>
+            <a class="topnav__link" href="#">Padel</a>
+            <a class="topnav__link" href="#">Running</a>
+            <a class="topnav__link" href="#">Outdoor</a>
+            <a class="topnav__link" href="#">Outlet</a>
+          </div>
+
+          <div class="topnav__actions">
+            <button class="icon-button" type="button" aria-label="Search">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+                <path
+                  d="M10.4 2a8.4 8.4 0 1 0 5.2 15l4.5 4.5a1 1 0 0 0 1.4-1.4l-4.5-4.5A8.4 8.4 0 0 0 10.4 2Zm0 2a6.4 6.4 0 1 1 0 12.8 6.4 6.4 0 0 1 0-12.8Z"
+                />
+              </svg>
+            </button>
+
+            <button id="themeButton" class="icon-button" type="button" aria-label="Switch to dark theme">
+              <span class="theme-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="icon theme-icon__sun">
+                  <path
+                    d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM3 11a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm16 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM5.1 5.1a1 1 0 0 1 1.4 0l.7.7a1 1 0 1 1-1.4 1.4l-.7-.7a1 1 0 0 1 0-1.4Zm11.7 11.7a1 1 0 0 1 1.4 0l.7.7a1 1 0 0 1-1.4 1.4l-.7-.7a1 1 0 0 1 0-1.4ZM18.9 5.1a1 1 0 0 1 0 1.4l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0ZM7.2 16.8a1 1 0 0 1 0 1.4l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0Z"
+                  />
+                </svg>
+                <svg viewBox="0 0 24 24" class="icon theme-icon__moon">
+                  <path
+                    d="M21 14.2A8.1 8.1 0 0 1 9.8 3a1 1 0 0 0-1.2 1.2A10 10 0 1 0 19.8 15.4a1 1 0 0 0 1.2-1.2Z"
+                  />
+                </svg>
+              </span>
+            </button>
+
+            <button
+              id="menuButton"
+              class="icon-button icon-button--hamburger"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+            >
+              <span class="hamburger" aria-hidden="true">
+                <span class="hamburger__bar"></span>
+                <span class="hamburger__bar"></span>
+              </span>
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <div id="mobileMenu" class="menu" hidden>
+        <div class="menu__backdrop" data-close aria-hidden="true"></div>
+        <div class="container">
+          <div class="menu__panel" role="region" aria-label="Menu">
+            <div class="menu__inner">
+              <div class="menu__top">
+                <p class="menu__title">Menu</p>
+                <button class="icon-button" type="button" data-close aria-label="Close menu">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+                    <path
+                      d="M18.3 5.7a1 1 0 0 0-1.4 0L12 10.6 7.1 5.7a1 1 0 1 0-1.4 1.4l4.9 4.9-4.9 4.9a1 1 0 1 0 1.4 1.4l4.9-4.9 4.9 4.9a1 1 0 0 0 1.4-1.4L13.4 12l4.9-4.9a1 1 0 0 0 0-1.4Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="menu__links" aria-label="Menu links">
+                <a class="menu__link" href="#">New</a>
+                <a class="menu__link" href="#">Padel</a>
+                <a class="menu__link" href="#">Running</a>
+                <a class="menu__link" href="#">Outdoor</a>
+                <a class="menu__link" href="#">Outlet</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="container" role="main">
+      <article class="product" aria-label="Product">
+        <section class="product__media" aria-label="Product images">
+          <figure class="media-card">
+            <img
+              class="media-card__img"
+              src="https://images.unsplash.com/photo-1622163642998-1ea40b8ade49?w=800&h=600&fit=crop"
+              width="800"
+              height="600"
+              alt="Aurora Pro Carbon padel racket"
+            />
+            <figcaption class="media-card__caption">
+              <span class="pill">New season</span>
+              <span class="pill pill--muted">Free cover</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="product__info" aria-label="Product information">
+          <header class="product__header">
+            <p class="kicker">Padel racket</p>
+            <h1 class="title">Aurora Pro Carbon</h1>
+            <div class="meta">
+              <div class="rating" aria-label="Rating: 4.7 out of 5">
+                <span class="rating__stars" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="star star--full">
+                    <path
+                      d="M12 17.3 18.2 21l-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3 7.4 14l-1.6 7L12 17.3z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 24 24" class="star star--full">
+                    <path
+                      d="M12 17.3 18.2 21l-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3 7.4 14l-1.6 7L12 17.3z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 24 24" class="star star--full">
+                    <path
+                      d="M12 17.3 18.2 21l-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3 7.4 14l-1.6 7L12 17.3z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 24 24" class="star star--full">
+                    <path
+                      d="M12 17.3 18.2 21l-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3 7.4 14l-1.6 7L12 17.3z"
+                    />
+                  </svg>
+                  <svg viewBox="0 0 24 24" class="star star--half">
+                    <defs>
+                      <linearGradient id="half" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="50%" stop-color="currentColor" />
+                        <stop offset="50%" stop-color="transparent" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      fill="url(#half)"
+                      d="M12 17.3 18.2 21l-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3 7.4 14l-1.6 7L12 17.3z"
+                    />
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      d="M12 17.3 18.2 21l-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3 7.4 14l-1.6 7L12 17.3z"
+                    />
+                  </svg>
+                </span>
+                <span class="rating__value">4.7</span>
+                <a class="rating__link" href="#" aria-label="Read 318 reviews">
+                  (318 reviews)
+                </a>
+              </div>
+
+              <p class="sku" aria-label="SKU">
+                SKU: <span class="sku__value">NDL-APC-24</span>
+              </p>
+            </div>
+          </header>
+
+          <p class="lead">
+            Balanced, precise, and comfortable. A carbon surface for crisp
+            control, with a medium-hard core tuned for fast volleys.
+          </p>
+
+          <div class="buybox" aria-label="Purchase options">
+            <div class="price">
+              <span class="price__label">Price</span>
+              <span class="price__value">599,00 zł</span>
+              <span class="price__note">VAT included</span>
+            </div>
+
+            <div class="actions">
+              <button class="button button--primary" type="button">
+                Buy Now
+              </button>
+              <button class="button button--secondary" type="button">
+                Add to cart
+              </button>
+            </div>
+
+            <ul class="trust" aria-label="Delivery and returns">
+              <li class="trust__item">
+                <span class="trust__icon" aria-hidden="true"></span> 24h shipping
+              </li>
+              <li class="trust__item">
+                <span class="trust__icon trust__icon--shield" aria-hidden="true"></span>
+                30-day returns
+              </li>
+              <li class="trust__item">
+                <span class="trust__icon trust__icon--spark" aria-hidden="true"></span>
+                2-year warranty
+              </li>
+            </ul>
+          </div>
+
+          <section class="specs" aria-label="Key specs">
+            <h2 class="section-title">Highlights</h2>
+            <dl class="specs__grid">
+              <div class="spec">
+                <dt class="spec__k">Shape</dt>
+                <dd class="spec__v">Teardrop</dd>
+              </div>
+              <div class="spec">
+                <dt class="spec__k">Weight</dt>
+                <dd class="spec__v">365 g</dd>
+              </div>
+              <div class="spec">
+                <dt class="spec__k">Surface</dt>
+                <dd class="spec__v">12K carbon</dd>
+              </div>
+              <div class="spec">
+                <dt class="spec__k">Balance</dt>
+                <dd class="spec__v">Even</dd>
+              </div>
+            </dl>
+          </section>
+
+          <details class="details">
+            <summary class="details__summary">What’s in the box</summary>
+            <div class="details__body">
+              <ul class="list">
+                <li>Aurora Pro Carbon racket</li>
+                <li>Protective cover</li>
+                <li>Quick start guide</li>
+              </ul>
+            </div>
+          </details>
+        </section>
+      </article>
+
+      <section class="dashboard" aria-label="Dashboard">
+        <header class="dashboard__header">
+          <div>
+            <p class="kicker">Dashboard</p>
+            <h2 class="dash-title">Weekly stats</h2>
+          </div>
+          <div class="dash-filters" aria-label="Filters">
+            <button class="chip" type="button" aria-pressed="true">This week</button>
+            <button class="chip" type="button" aria-pressed="false">Last 30 days</button>
+            <button class="chip" type="button" aria-pressed="false">All time</button>
+          </div>
+        </header>
+
+        <div class="tiles" role="list">
+          <article class="tile tile--matches" role="listitem" aria-label="Padel matches">
+            <p class="tile__k">Padel matches</p>
+            <p class="tile__v">15</p>
+            <p class="tile__m">+3 vs last week</p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true">
+              <path d="M2 28 C 18 26, 24 10, 38 14 S 62 30, 78 20 S 98 4, 118 10" />
+            </svg>
+          </article>
+
+          <article class="tile tile--points" role="listitem" aria-label="Points">
+            <p class="tile__k">Points</p>
+            <p class="tile__v">420</p>
+            <p class="tile__m">Streak: 6 days</p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true">
+              <path d="M2 22 C 16 24, 28 30, 40 18 S 64 10, 76 14 S 96 26, 118 8" />
+            </svg>
+          </article>
+
+          <article class="tile tile--win" role="listitem" aria-label="Win rate">
+            <p class="tile__k">Win rate</p>
+            <p class="tile__v">67%</p>
+            <p class="tile__m">Best set: 6–2</p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true">
+              <path d="M2 26 C 18 18, 30 22, 42 14 S 70 6, 84 12 S 104 28, 118 16" />
+            </svg>
+          </article>
+
+          <article class="tile tile--time" role="listitem" aria-label="Time on court">
+            <p class="tile__k">Time on court</p>
+            <p class="tile__v">8h 40m</p>
+            <p class="tile__m">Avg: 1h 14m</p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true">
+              <path d="M2 30 C 20 30, 30 12, 44 16 S 68 32, 82 20 S 100 6, 118 12" />
+            </svg>
+          </article>
+
+          <article class="tile tile--gear" role="listitem" aria-label="Gear rating">
+            <p class="tile__k">Gear rating</p>
+            <p class="tile__v">4.7</p>
+            <p class="tile__m">Comfort-focused</p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true">
+              <path d="M2 20 C 14 12, 28 14, 40 10 S 64 18, 78 16 S 100 10, 118 14" />
+            </svg>
+          </article>
+
+          <article class="tile tile--rank" role="listitem" aria-label="Rank">
+            <p class="tile__k">Rank</p>
+            <p class="tile__v">Gold II</p>
+            <p class="tile__m">Promotion in 2 wins</p>
+            <svg class="spark" viewBox="0 0 120 36" aria-hidden="true">
+              <path d="M2 28 C 18 24, 28 26, 40 22 S 60 10, 78 12 S 104 18, 118 6" />
+            </svg>
+          </article>
+        </div>
+      </section>
+    </main>
+
+  </body>
+</html>
