@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padel w Polsce - Holy Grail Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+    
+    /* Page wrapper */
+    .page {
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Header - 100% width, 80px fixed height */
+    header {
+      height: 80px;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #d0d0d0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      display: block;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+      line-height: 80px;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-decoration: none;
+      margin-right: 40px;
+    }
+    
+    nav.top-nav {
+      display: inline-block;
+    }
+    
+    nav.top-nav a {
+      color: #666;
+      text-decoration: none;
+      margin-right: 24px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    nav.top-nav a:hover {
+      color: #1a1a1a;
+    }
+    
+    .search-box {
+      float: right;
+      margin-top: 20px;
+    }
+    
+    .search-box input {
+      width: 200px;
+      padding: 8px 12px;
+      border: 1px solid #d0d0d0;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    
+    /* Main layout container */
+    .main-container {
+      padding-top: 80px;
+      padding-bottom: 60px;
+      overflow: hidden;
+    }
+    
+    /* Navigation - left column, 200px wide */
+    nav.sidebar-left {
+      width: 200px;
+      float: left;
+      background: #ffffff;
+      border-right: 1px solid #d0d0d0;
+      min-height: calc(100vh - 140px);
+      padding: 20px;
+    }
+    
+    nav.sidebar-left h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+      text-transform: uppercase;
+    }
+    
+    nav.sidebar-left ul {
+      list-style: none;
+    }
+    
+    nav.sidebar-left li {
+      margin-bottom: 8px;
+    }
+    
+    nav.sidebar-left a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+      padding: 4px 0;
+    }
+    
+    nav.sidebar-left a:hover {
+      color: #1a1a1a;
+    }
+    
+    /* Content - center, flexible width */
+    main.content {
+      margin-left: 200px;
+      margin-right: 250px;
+      padding: 24px;
+      background: #ffffff;
+      min-height: calc(100vh - 140px);
+      overflow: hidden;
+    }
+    
+    main.content h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+    
+    main.content h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+    
+    main.content p {
+      margin-bottom: 12px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    /* Aside - right column, 250px wide */
+    aside.sidebar-right {
+      width: 250px;
+      float: right;
+      background: #ffffff;
+      border-left: 1px solid #d0d0d0;
+      min-height: calc(100vh - 140px);
+      padding: 20px;
+      margin-top: -100%;  /* Pull up to top */
+      position: relative;
+      left: 0;
+    }
+    
+    aside.sidebar-right::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    aside.sidebar-right h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+      text-transform: uppercase;
+    }
+    
+    aside.sidebar-right ul {
+      list-style: none;
+    }
+    
+    aside.sidebar-right li {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    aside.sidebar-right li:last-child {
+      border-bottom: none;
+    }
+    
+    .stat-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2563eb;
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+    }
+    
+    /* Footer - 100% width, 60px height, always at bottom */
+    footer {
+      height: 60px;
+      width: 100%;
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      line-height: 60px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      font-size: 14px;
+    }
+    
+    /* Mobile responsiveness - stack vertically */
+    @media (max-width: 768px) {
+      nav.sidebar-left,
+      aside.sidebar-right {
+        float: none;
+        width: 100%;
+        margin: 0;
+        min-height: auto;
+        border: none;
+        border-bottom: 1px solid #d0d0d0;
+      }
+      
+      main.content {
+        margin-left: 0;
+        margin-right: 0;
+        min-height: auto;
+      }
+      
+      aside.sidebar-right {
+        margin-top: 0;
+      }
+      
+      .search-box {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <a href="#" class="logo">🏓 PadelStats</a>
+        <nav class="top-nav">
+          <a href="#">Home</a>
+          <a href="#">Ranking</a>
+          <a href="#">Turnieje</a>
+          <a href="#">O nas</a>
+          <a href="#">Kontakt</a>
+        </nav>
+        <div class="search-box">
+          <input type="text" placeholder="Szukaj...">
+        </div>
+      </div>
+    </header>
+
+    <!-- Main container -->
+    <div class="main-container">
+      <!-- Left Navigation -->
+      <nav class="sidebar-left">
+        <h3>Nawigacja</h3>
+        <ul>
+          <li><a href="#">Padel Poznań</a></li>
+          <li><a href="#">Turnieje 2026</a></li>
+          <li><a href="#">Lorem ipsum dolor 1</a></li>
+          <li><a href="#">Lorem ipsum dolor 2</a></li>
+          <li><a href="#">Lorem ipsum dolor 3</a></li>
+          <li><a href="#">Lorem ipsum dolor 4</a></li>
+          <li><a href="#">Lorem ipsum dolor 5</a></li>
+          <li><a href="#">Lorem ipsum dolor 6</a></li>
+          <li><a href="#">Lorem ipsum dolor 7</a></li>
+          <li><a href="#">Lorem ipsum dolor 8</a></li>
+          <li><a href="#">Lorem ipsum dolor 9</a></li>
+          <li><a href="#">Lorem ipsum dolor 10</a></li>
+          <li><a href="#">Lorem ipsum dolor 11</a></li>
+          <li><a href="#">Lorem ipsum dolor 12</a></li>
+          <li><a href="#">Lorem ipsum dolor 13</a></li>
+          <li><a href="#">Lorem ipsum dolor 14</a></li>
+          <li><a href="#">Lorem ipsum dolor 15</a></li>
+          <li><a href="#">Lorem ipsum dolor 16</a></li>
+          <li><a href="#">Lorem ipsum dolor 17</a></li>
+          <li><a href="#">Lorem ipsum dolor 18</a></li>
+          <li><a href="#">Lorem ipsum dolor 19</a></li>
+          <li><a href="#">Lorem ipsum dolor 20</a></li>
+          <li><a href="#">Lorem ipsum dolor 21</a></li>
+          <li><a href="#">Lorem ipsum dolor 22</a></li>
+          <li><a href="#">Lorem ipsum dolor 23</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="content">
+        <h1>🏓 Historia Padla w Polsce</h1>
+        
+        <p>Padel to dynamicznie rozwijający się sport, który podbił serca Polaków w ostatnich latach. Choć w naszym kraju zadebiutował stosunkowo niedawno, jego popularność rośnie w zawrotnym tempie. Pierwsze korty padelowe pojawiły się w Polsce na początku XXI wieku, ale prawdziwy boom nastąpił w drugiej dekadzie.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <h2>Rozwój sportu w ostatnich latach</h2>
+        
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+        
+        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+        
+        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+        
+        <h2>Sprzęt na sezon 2026</h2>
+        
+        <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+        
+        <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Volkl, Rossignol oraz Atomic to marki, które dominują na polskim rynku padelowym w sezonie 2026.</p>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="sidebar-right">
+        <h3>Statystyki</h3>
+        <ul>
+          <li>
+            <span class="stat-number">47</span>
+            <span class="stat-label">Mecze</span>
+          </li>
+          <li>
+            <span class="stat-number">124</span>
+            <span class="stat-label">Gracze</span>
+          </li>
+          <li>
+            <span class="stat-number">15</span>
+            <span class="stat-label">Korty</span>
+          </li>
+          <li>
+            <span class="stat-number">8</span>
+            <span class="stat-label">Turnieje</span>
+          </li>
+          <li>
+            <span class="stat-number">2.4k</span>
+            <span class="stat-label">Użytkownicy</span>
+          </li>
+          <li>
+            <span class="stat-number">89%</span>
+            <span class="stat-label">Zadowolenie</span>
+          </li>
+          <li>
+            <span class="stat-number">12</span>
+            <span class="stat-label">Kluby</span>
+          </li>
+          <li>
+            <span class="stat-number">1567</span>
+            <span class="stat-label">ELO Top</span>
+          </li>
+          <li>
+            <span class="stat-number">342</span>
+            <span class="stat-label">Ranking</span>
+          </li>
+          <li>
+            <span class="stat-number">56</span>
+            <span class="stat-label">Trenerzy</span>
+          </li>
+          <li>
+            <span class="stat-number">23</span>
+            <span class="stat-label">Sędziowie</span>
+          </li>
+          <li>
+            <span class="stat-number">4</span>
+            <span class="stat-label">Ligi</span>
+          </li>
+          <li>
+            <span class="stat-number">2026</span>
+            <span class="stat-label">Sezon</span>
+          </li>
+          <li>
+            <span class="stat-number">156</span>
+            <span class="stat-label">Miejsca</span>
+          </li>
+          <li>
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Dostępność</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      © 2026 PadelStats | Poznań
+    </footer>
+  </div>
+</body>
+</html>
