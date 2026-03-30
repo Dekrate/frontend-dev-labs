@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padel Dashboard - SASS</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <header class="dashboard-header">
+      <h1>Statystyki Padel</h1>
+      <p>Sezon 2024 - Podsumowanie</p>
+    </header>
+    
+    <div class="tiles-grid">
+      <div class="tile wins">
+        <span class="tile-value">47</span>
+        <span class="tile-label">Zwycięstwa</span>
+      </div>
+      
+      <div class="tile matches">
+        <span class="tile-value">124</span>
+        <span class="tile-label">Mecze</span>
+      </div>
+      
+      <div class="tile elo">
+        <span class="tile-value">1256</span>
+        <span class="tile-label">ELO Rating</span>
+      </div>
+      
+      <div class="tile avg-points">
+        <span class="tile-value">6.4</span>
+        <span class="tile-label">Średnia pkt</span>
+      </div>
+      
+      <div class="tile tournaments">
+        <span class="tile-value">12</span>
+        <span class="tile-label">Turnieje</span>
+      </div>
+      
+      <div class="tile win-rate">
+        <span class="tile-value">37.9%</span>
+        <span class="tile-label">Win Rate</span>
+      </div>
+    </div>
+    
+    <div style="margin-top: 2rem; text-align: center;">
+      <button class="btn-primary">Eksportuj dane</button>
+      <button class="btn-secondary" style="margin-left: 0.5rem;">Szczegóły</button>
+      <button class="btn-danger" style="margin-left: 0.5rem;">Usuń</button>
+    </div>
+  </div>
+  
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Profile - Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            padel: {
+              DEFAULT: '#10b981',
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          },
+          spacing: {
+            '2.6': '2.6rem',
+            '17.3': '17.3rem',
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'slide-in': 'slideIn 0.5s ease-out',
+            'bounce-slow': 'bounce 2s infinite',
+          },
+          keyframes: {
+            slideIn: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          }
+        }
+      },
+      plugins: [
+        function({ addUtilities }) {
+          addUtilities({
+            '.bg-gradient-padel': {
+              'background-image': 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+            },
+            '.text-gradient': {
+              'background-image': 'linear-gradient(135deg, #10b981 0%, #3b82f6 100%)',
+              '-webkit-background-clip': 'text',
+              '-webkit-text-fill-color': 'transparent',
+            }
+          })
+        }
+      ]
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 min-h-screen">
+  <div class="max-w-4xl mx-auto p-4 md:p-8">
+    
+    <!-- Hero Section -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 md:p-8 mb-6 animate-slide-in">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <!-- Avatar with gradient border -->
+        <div class="relative">
+          <div class="w-[17.3rem] h-[17.3rem] md:w-32 md:h-32 rounded-full bg-gradient-to-br from-padel-400 to-padel-600 p-1">
+            <div class="w-full h-full rounded-full bg-white dark:bg-slate-700 flex items-center justify-center text-4xl font-bold text-slate-700 dark:text-slate-300">
+              P1
+            </div>
+          </div>
+          <div class="absolute -bottom-1 -right-1 w-8 h-8 bg-padel-500 rounded-full flex items-center justify-center animate-pulse-slow">
+            <span class="text-white text-xs font-bold">★</span>
+          </div>
+        </div>
+        
+        <!-- Info -->
+        <div class="text-center md:text-left flex-1">
+          <h1 class="text-3xl md:text-4xl font-black text-gradient mb-2">Player One</h1>
+          <p class="text-slate-500 dark:text-slate-400 mb-4">Poznań, Polska • Od 2022</p>
+          
+          <!-- ELO Badge -->
+          <div class="inline-flex items-center gap-2 bg-gradient-padel text-white px-4 py-2 rounded-full font-bold text-lg animate-pulse-slow">
+            <span>ELO: 1567</span>
+            <span class="text-sm opacity-75">#142</span>
+          </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="flex gap-6 md:gap-8">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-slate-900 dark:text-white">124</div>
+            <div class="text-xs text-slate-500 uppercase">Mecze</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-padel-500">47</div>
+            <div class="text-xs text-slate-500 uppercase">Winy</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-slate-900 dark:text-white">37.9%</div>
+            <div class="text-xs text-slate-500 uppercase">Win Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+      <div class="group/card bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-xl hover:shadow-padel-500/20 transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm text-slate-500 uppercase">Win Rate</span>
+          <span class="text-xs bg-padel-100 text-padel-700 px-2 py-1 rounded-full">+2.3%</span>
+        </div>
+        <div class="text-3xl font-bold text-slate-900 dark:text-white">37.9%</div>
+        <div class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden">
+          <div class="h-full w-[37.9%] bg-gradient-padel rounded-full"></div>
+        </div>
+      </div>
+      
+      <div class="group/card bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-xl hover:shadow-padel-500/20 transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm text-slate-500 uppercase">ELO Rating</span>
+          <span class="text-xs bg-padel-100 text-padel-700 px-2 py-1 rounded-full">+45</span>
+        </div>
+        <div class="text-3xl font-bold text-slate-900 dark:text-white">1567</div>
+        <div class="mt-3 flex gap-1">
+          <div class="flex-[3] h-2 bg-padel-500 rounded-l-full"></div>
+          <div class="flex-[2] h-2 bg-slate-300 rounded-r-full"></div>
+        </div>
+      </div>
+      
+      <div class="group/card bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-xl hover:shadow-padel-500/20 transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm text-slate-500 uppercase">Turnieje</span>
+        </div>
+        <div class="text-3xl font-bold text-slate-900 dark:text-white">12</div>
+        <div class="mt-3 flex gap-2">
+          <span class="text-xs font-semibold text-yellow-600">2 Gold</span>
+          <span class="text-xs text-slate-400">4 Silver</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Activity Timeline -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6">
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Ostatnie mecze</h2>
+      
+      <div class="space-y-4 max-h-96 overflow-y-auto snap-y">
+        <div class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-700 rounded-lg snap-start hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors">
+          <div class="text-sm text-slate-500 w-16">24.03</div>
+          <div class="flex-1">
+            <div class="font-medium text-slate-900 dark:text-white">vs. Player Two</div>
+            <div class="text-sm text-slate-500">Mecz sparingowy</div>
+          </div>
+          <span class="px-3 py-1 bg-padel-100 text-padel-700 rounded-full text-sm font-semibold">🏆 Wygrana</span>
+          <div class="font-mono text-slate-700 dark:text-slate-300">6-4 6-3</div>
+        </div>
+        
+        <div class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-700 rounded-lg snap-start hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors">
+          <div class="text-sm text-slate-500 w-16">21.03</div>
+          <div class="flex-1">
+            <div class="font-medium text-slate-900 dark:text-white">Warsaw Padel Cup QF</div>
+            <div class="text-sm text-slate-500">Turniej</div>
+          </div>
+          <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-semibold">❌ Porażka</span>
+          <div class="font-mono text-slate-700 dark:text-slate-300">4-6 5-7</div>
+        </div>
+        
+        <div class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-700 rounded-lg snap-start hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors">
+          <div class="text-sm text-slate-500 w-16">19.03</div>
+          <div class="flex-1">
+            <div class="font-medium text-slate-900 dark:text-white">vs. Player Three</div>
+            <div class="text-sm text-slate-500">Mecz rankingowy</div>
+          </div>
+          <span class="px-3 py-1 bg-padel-100 text-padel-700 rounded-full text-sm font-semibold">🏆 Wygrana</span>
+          <div class="font-mono text-slate-700 dark:text-slate-300">7-5 6-4</div>
+        </div>
+        
+        <div class="flex items-center gap-4 p-3 bg-slate-50 dark:bg-slate-700 rounded-lg snap-start hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors">
+          <div class="text-sm text-slate-500 w-16">16.03</div>
+          <div class="flex-1">
+            <div class="font-medium text-slate-900 dark:text-white">Weekend League Final</div>
+            <div class="text-sm text-slate-500">Finał ligi</div>
+          </div>
+          <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">🥇 1. miejsce</span>
+          <div class="font-mono text-slate-700 dark:text-slate-300">6-3 3-6 6-4</div>
+        </div>
+      </div>
+      
+      <button class="w-full mt-4 py-2 text-padel-600 hover:text-padel-700 font-medium transition-colors">
+        Zobacz wszystkie mecze
+      </button>
+    </div>
+  </div>
+</body>
+</html>

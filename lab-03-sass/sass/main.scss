@@ -1,0 +1,91 @@
+@use 'variables';
+@use 'mixins';
+@use 'tiles';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: variables.$font-sans;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  background: variables.$color-gray-100;
+  color: variables.$color-gray-900;
+  min-height: 100vh;
+}
+
+.btn {
+  @include mixins.button-base;
+  
+  &-primary {
+    @extend .btn;
+    background: variables.$padel-primary;
+    color: variables.$color-white;
+    
+    &:hover {
+      background: variables.$padel-secondary;
+    }
+  }
+  
+  &-secondary {
+    @extend .btn;
+    background: variables.$color-gray-200;
+    color: variables.$color-gray-700;
+    
+    &:hover {
+      background: variables.$color-gray-300;
+    }
+  }
+  
+  &-danger {
+    @extend .btn;
+    background: #ef4444;
+    color: variables.$color-white;
+    
+    &:hover {
+      background: #dc2626;
+    }
+  }
+}
+
+html.dark {
+  body {
+    background: variables.$color-gray-900;
+    color: variables.$color-white;
+  }
+  
+  .dashboard {
+    .dashboard-header {
+      h1 {
+        color: variables.$color-white;
+      }
+      
+      p {
+        color: variables.$color-gray-400;
+      }
+    }
+  }
+  
+  .tile {
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        $hue: 160 + ($i * 20);
+        background: linear-gradient(135deg, hsl($hue, 50%, 20%) 0%, hsl($hue, 50%, 15%) 100%);
+        
+        .tile-value {
+          color: hsl($hue, 70%, 70%);
+        }
+        
+        .tile-label {
+          color: hsl($hue, 50%, 60%);
+        }
+      }
+    }
+  }
+}

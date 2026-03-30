@@ -1,0 +1,74 @@
+@use 'variables';
+@use 'mixins';
+
+.tile {
+  @include mixins.card;
+  @include mixins.flex-center;
+  flex-direction: column;
+  min-height: 200px;
+  text-align: center;
+  
+  .tile-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: variables.$color-gray-900;
+    margin-bottom: variables.$spacing-sm;
+    font-family: variables.$font-mono;
+  }
+  
+  .tile-label {
+    font-size: 0.875rem;
+    color: variables.$color-gray-500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      $hue: 160 + ($i * 20);
+      background: linear-gradient(135deg, hsl($hue, 70%, 90%) 0%, hsl($hue, 70%, 85%) 100%);
+      border-left: 4px solid hsl($hue, 70%, 50%);
+      
+      .tile-value {
+        color: hsl($hue, 70%, 35%);
+      }
+      
+      .tile-label {
+        color: hsl($hue, 70%, 45%);
+      }
+    }
+  }
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: variables.$spacing-xl;
+  
+  .dashboard-header {
+    margin-bottom: variables.$spacing-xl;
+    
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: variables.$color-gray-900;
+      margin-bottom: variables.$spacing-sm;
+    }
+    
+    p {
+      color: variables.$color-gray-500;
+    }
+  }
+  
+  .tiles-grid {
+    @include mixins.grid(1, variables.$spacing-md);
+    
+    @include mixins.breakpoint(md) {
+      @include mixins.grid(2, variables.$spacing-lg);
+    }
+    
+    @include mixins.breakpoint(lg) {
+      @include mixins.grid(3, variables.$spacing-lg);
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@use 'variables';
+
+@mixin card {
+  background: variables.$color-white;
+  border-radius: variables.$radius-lg;
+  box-shadow: variables.$shadow-md;
+  padding: variables.$spacing-lg;
+  transition: transform variables.$transition-normal, box-shadow variables.$transition-normal;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: variables.$shadow-lg;
+  }
+}
+
+@mixin hover-lift {
+  transition: transform variables.$transition-normal, box-shadow variables.$transition-normal;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: variables.$shadow-xl;
+  }
+}
+
+@mixin breakpoint($size) {
+  @if $size == sm {
+    @media (min-width: variables.$breakpoint-sm) { @content; }
+  }
+  @else if $size == md {
+    @media (min-width: variables.$breakpoint-md) { @content; }
+  }
+  @else if $size == lg {
+    @media (min-width: variables.$breakpoint-lg) { @content; }
+  }
+  @else if $size == xl {
+    @media (min-width: variables.$breakpoint-xl) { @content; }
+  }
+}
+
+@mixin gradient-bg($start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color 0%, $end-color 100%);
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: variables.$spacing-sm variables.$spacing-md;
+  border-radius: variables.$radius-md;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color variables.$transition-fast, transform variables.$transition-fast;
+  border: none;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin grid($columns: 3, $gap: variables.$spacing-lg) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
