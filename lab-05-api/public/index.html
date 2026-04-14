@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">FILM_DATABASE</h1>
+      <p class="subtitle">// film collection management system</p>
+    </header>
+
+    <div id="message" class="message hidden"></div>
+
+    <section class="form-section">
+      <h2 class="section-title">ADD_NEW_FILM</h2>
+      <form id="addForm" class="add-form">
+        <input type="text" id="title" placeholder="TITLE" required class="input">
+        <input type="text" id="category" placeholder="CATEGORY" required class="input">
+        <input type="number" id="year" placeholder="YEAR" required class="input">
+        <button type="submit" class="btn btn-add">+ ADD_FILM</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h2 class="section-title">COLLECTION <span id="count">(0 items)</span></h2>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>TITLE</th>
+              <th>CATEGORY</th>
+              <th>YEAR</th>
+              <th>WATCHED</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
