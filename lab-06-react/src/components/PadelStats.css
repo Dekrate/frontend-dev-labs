@@ -1,0 +1,19 @@
+.stats-summary {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.last-match {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #f0f8ff;
+  border-radius: 4px;
+}
+
+.last-match h3 {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+}

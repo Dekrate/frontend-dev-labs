@@ -1,0 +1,37 @@
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #f0f0f0;
+}
+
+input, select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

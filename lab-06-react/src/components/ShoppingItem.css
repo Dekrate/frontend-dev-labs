@@ -1,0 +1,44 @@
+.shopping-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.shopping-item.bought {
+  opacity: 0.6;
+}
+
+.shopping-item.bought .item-name {
+  text-decoration: line-through;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-price {
+  color: #666;
+}
+
+.remove-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.remove-btn:hover {
+  background: #cc0000;
+}
