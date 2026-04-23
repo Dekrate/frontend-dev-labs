@@ -1,0 +1,12 @@
+<form (ngSubmit)="submit()" class="task-form">
+  <input
+    type="text"
+    [(ngModel)]="title"
+    name="title"
+    placeholder="What needs to be done?"
+    maxlength="255"
+    required
+    autocomplete="off"
+  />
+  <button type="submit" [disabled]="!title.trim()">Add</button>
+</form>

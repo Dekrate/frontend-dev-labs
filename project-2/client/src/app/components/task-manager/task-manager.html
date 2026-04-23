@@ -1,0 +1,52 @@
+<div class="task-manager">
+  <header>
+    <h1>Tasks</h1>
+    <p class="subtitle">Keep track of what matters.</p>
+  </header>
+
+  <app-task-form (add)="onAdd($event)" />
+
+  @if (error()) {
+    <div class="error-banner" role="alert">
+      <span>{{ error() }}</span>
+      <button (click)="dismissError()">Dismiss</button>
+    </div>
+  }
+
+  <nav class="tabs" role="tablist">
+    <button
+      role="tab"
+      [attr.aria-selected]="filter() === 'all'"
+      [class.active]="filter() === 'all'"
+      (click)="setFilter('all')"
+    >
+      All <span class="badge">{{ counts().all }}</span>
+    </button>
+    <button
+      role="tab"
+      [attr.aria-selected]="filter() === 'todo'"
+      [class.active]="filter() === 'todo'"
+      (click)="setFilter('todo')"
+    >
+      To Do <span class="badge">{{ counts().todo }}</span>
+    </button>
+    <button
+      role="tab"
+      [attr.aria-selected]="filter() === 'done'"
+      [class.active]="filter() === 'done'"
+      (click)="setFilter('done')"
+    >
+      Done <span class="badge">{{ counts().done }}</span>
+    </button>
+  </nav>
+
+  @if (loading()) {
+    <p class="loading">Loading...</p>
+  }
+
+  <app-task-list
+    [tasks]="filteredTasks()"
+    (toggle)="onToggle($event)"
+    (remove)="onDelete($event)"
+  />
+</div>

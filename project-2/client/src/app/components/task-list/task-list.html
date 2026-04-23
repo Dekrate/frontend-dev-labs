@@ -1,0 +1,13 @@
+@if (tasks().length === 0) {
+  <p class="empty">Nothing here yet.</p>
+} @else {
+  <div class="task-list">
+    @for (task of tasks(); track task.id) {
+      <app-task-item
+        [task]="task"
+        (toggle)="toggle.emit($event)"
+        (remove)="remove.emit($event)"
+      />
+    }
+  </div>
+}

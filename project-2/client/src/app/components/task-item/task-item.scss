@@ -1,0 +1,68 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #222;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #1a1a1a;
+  }
+
+  &.completed .title {
+    text-decoration: line-through;
+    color: #555;
+  }
+
+  .check {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid #444;
+    background: transparent;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    flex-shrink: 0;
+
+    .mark {
+      width: 0.75rem;
+      height: 0.75rem;
+      background: #ff6b35;
+      transform: scale(0);
+      transition: transform 0.15s;
+
+      &.checked {
+        transform: scale(1);
+      }
+    }
+
+    &:hover {
+      border-color: #ff6b35;
+    }
+  }
+
+  .title {
+    flex: 1;
+    font-size: 1rem;
+    color: #e0e0e0;
+    word-break: break-word;
+  }
+
+  .delete {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: #555;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s;
+
+    &:hover {
+      color: #ff4444;
+    }
+  }
+}

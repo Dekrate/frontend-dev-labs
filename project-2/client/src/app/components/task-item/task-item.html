@@ -1,0 +1,7 @@
+<div class="task-item" [class.completed]="task().completed">
+  <button class="check" (click)="onToggle()" [attr.aria-pressed]="task().completed">
+    <span class="mark" [class.checked]="task().completed"></span>
+  </button>
+  <span class="title">{{ task().title }}</span>
+  <button class="delete" (click)="onDelete()" aria-label="Delete task">&times;</button>
+</div>

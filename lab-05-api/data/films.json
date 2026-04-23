@@ -1,7 +1,37 @@
 [
-  { "id": 1, "title": "Blade Runner", "category": "Sci-Fi", "year": 1982, "watched": true },
-  { "id": 2, "title": "The Godfather", "category": "Crime", "year": 1972, "watched": true },
-  { "id": 3, "title": "Inception", "category": "Sci-Fi", "year": 2010, "watched": false },
-  { "id": 4, "title": "Parasite", "category": "Drama", "year": 2019, "watched": true },
-  { "id": 5, "title": "Mad Max: Fury Road", "category": "Action", "year": 2015, "watched": false }
+  {
+    "id": 1,
+    "title": "Blade Runner",
+    "category": "Sci-Fi",
+    "year": 1982,
+    "watched": true
+  },
+  {
+    "id": 2,
+    "title": "The Godfather",
+    "category": "Crime",
+    "year": 1972,
+    "watched": true
+  },
+  {
+    "id": 3,
+    "title": "Inception",
+    "category": "Sci-Fi",
+    "year": 2010,
+    "watched": false
+  },
+  {
+    "id": 4,
+    "title": "Parasite",
+    "category": "Drama",
+    "year": 2019,
+    "watched": true
+  },
+  {
+    "id": 5,
+    "title": "Mad Max: Fury Road",
+    "category": "Action",
+    "year": 2015,
+    "watched": false
+  }
 ]

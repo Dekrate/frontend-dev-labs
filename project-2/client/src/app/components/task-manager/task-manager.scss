@@ -1,0 +1,107 @@
+.task-manager {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  header {
+    margin-bottom: 1.5rem;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0;
+      color: #fff;
+    }
+
+    .subtitle {
+      margin-top: 0.25rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
+  }
+
+  .error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ff4444;
+    background: #2a0a0a;
+    color: #ff9999;
+
+    button {
+      background: transparent;
+      border: 1px solid #ff4444;
+      color: #ff4444;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover {
+        background: #ff4444;
+        color: #fff;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0;
+    border-bottom: 2px solid #333;
+
+    button {
+      position: relative;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: transparent;
+      border: none;
+      color: #777;
+      cursor: pointer;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #ccc;
+      }
+
+      &.active {
+        color: #ff6b35;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: #ff6b35;
+        }
+      }
+
+      .badge {
+        display: inline-block;
+        margin-left: 0.4rem;
+        padding: 0.1rem 0.4rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        background: #333;
+        color: #aaa;
+      }
+    }
+  }
+
+  .loading {
+    padding: 1rem;
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+  }
+}
