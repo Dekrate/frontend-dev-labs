@@ -1,13 +1,41 @@
 import React, { useState } from 'react';
 
 const links = [
-  { label: 'E-sklep', color: 'bg-blue-600' },
-  { label: 'E-multimedia', color: 'bg-orange-500' },
-  { label: 'Kuchnia Polki', color: 'bg-pink-600' },
-  { label: 'Gazetka', color: 'bg-green-600' },
-  { label: 'Arabeska', color: 'bg-purple-600' },
-  { label: 'Pióra', color: 'bg-indigo-600' },
-  { label: 'Trafika', color: 'bg-red-600' },
+  {
+    label: 'E-sklep',
+    src: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=80&q=80',
+    alt: 'Koszyk z zakupami',
+  },
+  {
+    label: 'E-multimedia',
+    src: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=80&q=80',
+    alt: 'Płyta CD',
+  },
+  {
+    label: 'Kuchnia Polki',
+    src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=80&q=80',
+    alt: 'Produkty spożywcze',
+  },
+  {
+    label: 'Gazetka',
+    src: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=80&q=80',
+    alt: 'Koszyk z zakupami',
+  },
+  {
+    label: 'Arabeska',
+    src: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=80&q=80',
+    alt: 'Płyta CD',
+  },
+  {
+    label: 'Pióra',
+    src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=80&q=80',
+    alt: 'Produkty spożywcze',
+  },
+  {
+    label: 'Trafika',
+    src: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=80&q=80',
+    alt: 'Koszyk z zakupami',
+  },
 ];
 
 const Sidebar: React.FC = () => {
@@ -23,8 +51,13 @@ const Sidebar: React.FC = () => {
               href={`#${link.label.toLowerCase().replace(/\s+/g, '-')}`}
               className="flex items-center gap-3 group"
             >
-              <div className={`w-12 h-12 ${link.color} rounded-sm flex items-center justify-center text-white text-xs font-bold shadow-sm`}>
-                {link.label[0]}
+              <div className="w-14 h-14 shrink-0 rounded-sm overflow-hidden shadow-sm border border-border-light">
+                <img
+                  src={link.src}
+                  alt={link.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <span className="text-sm text-text-body font-medium group-hover:text-brand-blue group-hover:underline">
                 {link.label}
