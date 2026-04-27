@@ -10,6 +10,7 @@ test.describe('Layout Recreation', () => {
     await expect(page.getByTestId('image-gallery')).toBeVisible();
     await expect(page.getByTestId('sidebar')).toBeVisible();
     await expect(page.getByTestId('site-footer')).toBeVisible();
+    await expect(page.getByTestId('analog-clock')).toBeVisible();
   });
 
   test('navigation links are present', async ({ page }) => {

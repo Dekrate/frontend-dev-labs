@@ -43,25 +43,31 @@ const Sidebar: React.FC = () => {
   const [email, setEmail] = useState('');
 
   return (
-    <aside className="w-full md:w-52 shrink-0" data-testid="sidebar">
-      <ul className="space-y-3 mb-6">
+    <aside className="w-full md:w-56 shrink-0" data-testid="sidebar">
+      <ul className="space-y-1 mb-6">
         {links.map((link) => (
           <li key={link.label}>
             <a
               href={`#${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-3 group justify-between"
             >
-              <div className="w-14 h-14 shrink-0 rounded-sm overflow-hidden shadow-sm border border-border-light">
-                <img
-                  src={link.src}
-                  alt={link.alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
               <span className="text-sm text-text-body font-medium group-hover:text-brand-blue group-hover:underline">
                 {link.label}
               </span>
+              <div
+                className="w-16 h-16 shrink-0 bg-white rounded-sm shadow-md border border-gray-200 p-1"
+                style={{
+                  transform: 'skewY(10deg)',
+                  transformOrigin: 'center center',
+                }}
+              >
+                <img
+                  src={link.src}
+                  alt={link.alt}
+                  className="w-full h-full object-cover rounded-sm"
+                  loading="lazy"
+                />
+              </div>
             </a>
           </li>
         ))}
@@ -78,7 +84,7 @@ const Sidebar: React.FC = () => {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 px-2 py-1 text-sm border border-border-light rounded-sm focus:outline-none focus:border-brand-blue"
+              className="flex-1 min-w-0 px-2 py-1 text-sm border border-border-light rounded-sm focus:outline-none focus:border-brand-blue"
               aria-label="Szukaj"
             />
             <button
@@ -102,7 +108,7 @@ const Sidebar: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="twój@email.pl"
-              className="flex-1 px-2 py-1 text-sm border border-border-light rounded-sm focus:outline-none focus:border-brand-blue"
+              className="flex-1 min-w-0 px-2 py-1 text-sm border border-border-light rounded-sm focus:outline-none focus:border-brand-blue"
               aria-label="Email do newslettera"
             />
             <button

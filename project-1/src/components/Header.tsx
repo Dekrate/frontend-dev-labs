@@ -1,4 +1,5 @@
 import React from 'react';
+import AnalogClock from './AnalogClock';
 
 const Header: React.FC = () => {
   return (
@@ -59,9 +60,12 @@ const Header: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="text-right text-sm text-text-muted">
-            <div className="font-semibold text-text-body">Wtorek 26.10.2006</div>
-            <div>Imieniny: Janiny i Stefana</div>
+          <div className="flex items-center gap-3">
+            <div className="text-right text-sm text-text-muted">
+              <div className="font-semibold text-text-body">Wtorek 26.10.2006</div>
+              <div>Imieniny: Janiny i Stefana</div>
+            </div>
+            <AnalogClock />
           </div>
         </div>
       </div>

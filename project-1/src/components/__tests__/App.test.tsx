@@ -12,6 +12,11 @@ describe('App Layout', () => {
     expect(screen.getByText(/szynk/i)).toBeInTheDocument();
   });
 
+  it('renders analog clock', () => {
+    render(<App />);
+    expect(screen.getByTestId('analog-clock')).toBeInTheDocument();
+  });
+
   it('renders navigation with all links', () => {
     render(<App />);
     const nav = screen.getByTestId('main-navigation');
