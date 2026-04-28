@@ -17,8 +17,8 @@ beforeEach(() => {
 
 describe('PATCH /api/tasks/:id', () => {
 	it('updates task completion', async () => {
-		const updated = { id: 1, title: 'T', completed: true, createdAt: new Date().toISOString() };
-		db.task.update.mockResolvedValue(updated);
+		const updated = { id: 1, title: 'T', completed: true, createdAt: new Date() };
+		vi.mocked(db.task.update).mockResolvedValue(updated);
 		const request = new Request('http://localhost/api/tasks/1', {
 			method: 'PATCH',
 			headers: { 'Content-Type': 'application/json' },
@@ -30,7 +30,8 @@ describe('PATCH /api/tasks/:id', () => {
 			url: new URL('http://localhost/api/tasks/1')
 		} as any);
 		expect(response.status).toBe(200);
-		expect(await response.json()).toEqual(updated);
+		const body = await response.json();
+		expect(body).toMatchObject({ id: 1, title: 'T', completed: true });
 	});
 
 	it('returns 400 for an invalid id', async () => {
@@ -49,7 +50,7 @@ describe('PATCH /api/tasks/:id', () => {
 	});
 
 	it('returns 404 for a missing task', async () => {
-		db.task.update.mockRejectedValue({ code: 'P2025' });
+		vi.mocked(db.task.update).mockRejectedValue({ code: 'P2025' });
 		const request = new Request('http://localhost/api/tasks/999', {
 			method: 'PATCH',
 			headers: { 'Content-Type': 'application/json' },
@@ -67,7 +68,7 @@ describe('PATCH /api/tasks/:id', () => {
 
 describe('DELETE /api/tasks/:id', () => {
 	it('deletes a task', async () => {
-		db.task.delete.mockResolvedValue(undefined);
+		vi.mocked(db.task.delete).mockResolvedValue({ id: 1, title: 'T', completed: false, createdAt: new Date() } as any);
 		const response = await DELETE({
 			params: { id: '1' },
 			url: new URL('http://localhost/api/tasks/1')
@@ -85,7 +86,7 @@ describe('DELETE /api/tasks/:id', () => {
 	});
 
 	it('returns 404 for a missing task', async () => {
-		db.task.delete.mockRejectedValue({ code: 'P2025' });
+		vi.mocked(db.task.delete).mockRejectedValue({ code: 'P2025' });
 		await expect(
 			DELETE({
 				params: { id: '999' },

@@ -17,16 +17,18 @@ beforeEach(() => {
 
 describe('GET /api/tasks', () => {
 	it('returns tasks ordered by createdAt desc', async () => {
-		const tasks = [{ id: 1, title: 'T', completed: false, createdAt: new Date().toISOString() }];
-		db.task.findMany.mockResolvedValue(tasks);
+		const tasks = [{ id: 1, title: 'T', completed: false, createdAt: new Date() }];
+		vi.mocked(db.task.findMany).mockResolvedValue(tasks);
 		const response = await GET({ url: new URL('http://localhost/api/tasks?filter=all') } as any);
 		expect(response.status).toBe(200);
-		expect(await response.json()).toEqual(tasks);
+		const body = await response.json();
+		expect(body).toHaveLength(1);
+		expect(body[0]).toMatchObject({ id: 1, title: 'T', completed: false });
 		expect(db.task.findMany).toHaveBeenCalledWith({ where: {}, orderBy: { createdAt: 'desc' } });
 	});
 
 	it('filters todo tasks', async () => {
-		db.task.findMany.mockResolvedValue([]);
+		vi.mocked(db.task.findMany).mockResolvedValue([]);
 		await GET({ url: new URL('http://localhost/api/tasks?filter=todo') } as any);
 		expect(db.task.findMany).toHaveBeenCalledWith({
 			where: { completed: false },
@@ -35,7 +37,7 @@ describe('GET /api/tasks', () => {
 	});
 
 	it('filters done tasks', async () => {
-		db.task.findMany.mockResolvedValue([]);
+		vi.mocked(db.task.findMany).mockResolvedValue([]);
 		await GET({ url: new URL('http://localhost/api/tasks?filter=done') } as any);
 		expect(db.task.findMany).toHaveBeenCalledWith({
 			where: { completed: true },
@@ -46,8 +48,8 @@ describe('GET /api/tasks', () => {
 
 describe('POST /api/tasks', () => {
 	it('creates a task with valid data', async () => {
-		const created = { id: 1, title: 'New', completed: false, createdAt: new Date().toISOString() };
-		db.task.create.mockResolvedValue(created);
+		const created = { id: 1, title: 'New', completed: false, createdAt: new Date() };
+		vi.mocked(db.task.create).mockResolvedValue(created);
 		const request = new Request('http://localhost/api/tasks', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -55,7 +57,8 @@ describe('POST /api/tasks', () => {
 		});
 		const response = await POST({ request, url: new URL('http://localhost/api/tasks') } as any);
 		expect(response.status).toBe(201);
-		expect(await response.json()).toEqual(created);
+		const body = await response.json();
+		expect(body).toMatchObject({ id: 1, title: 'New', completed: false });
 	});
 
 	it('returns 400 for an empty title', async () => {
